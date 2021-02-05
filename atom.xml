@@ -6,7 +6,7 @@
   <link href="https://lbwfree,cn/atom.xml" rel="self"/>
   
   <link href="https://lbwfree,cn/"/>
-  <updated>2021-02-02T16:55:19.239Z</updated>
+  <updated>2021-02-03T16:58:41.804Z</updated>
   <id>https://lbwfree,cn/</id>
   
   <author>
@@ -17,10 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Test</title>
+    <link href="https://lbwfree,cn/2021/02/04/Test/"/>
+    <id>https://lbwfree,cn/2021/02/04/Test/</id>
+    <published>2021-02-04T15:43:15.000Z</published>
+    <updated>2021-02-03T16:58:41.804Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Anaconda的创建、激活、退出、删除虚拟环境&quot;&gt;&lt;a href=&quot;#Anaconda的创建、激活、退出、删除虚拟环境&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="框架学习" scheme="https://lbwfree,cn/categories/%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="Python" scheme="https://lbwfree,cn/categories/%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/Python/"/>
+    
+    
+    <category term="基础" scheme="https://lbwfree,cn/tags/%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
-    <link href="https://lbwfree,cn/2021/02/03/hello-world/"/>
-    <id>https://lbwfree,cn/2021/02/03/hello-world/</id>
-    <published>2021-02-02T16:55:19.239Z</published>
+    <link href="https://lbwfree,cn/2021/02/04/hello-world/"/>
+    <id>https://lbwfree,cn/2021/02/04/hello-world/</id>
+    <published>2021-02-03T16:23:14.240Z</published>
     <updated>2021-02-02T16:55:19.239Z</updated>
     
     
