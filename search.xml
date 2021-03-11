@@ -1,6 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Mysql基础</title>
+    <url>/2021/03/11/sql/mysql/mysql%E5%88%9D%E6%AD%A5%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h2 id="Mysql基础知识"><a href="#Mysql基础知识" class="headerlink" title="Mysql基础知识"></a>Mysql基础知识</h2><p>数据库(database)中 ，表(table)是一种结构化的文件,每个表有一个唯一的名字来标识。<br>表是由一个至多个列组成，每个列(column)有相应的类型。<br>表中的数据按行(row)排列，一行为表中的一个记录。</p>
+<a id="more"></a>
+<p>主键(primary key)是来标识行的唯一。主键可以没有但是进行操作可能会有出现麻烦。<br>主键是来标识行的唯一的所以主键所在的列在表中值不重复，可以没有主键但不能为NULL值</p>
+<h4 id="Mysql的CURD"><a href="#Mysql的CURD" class="headerlink" title="Mysql的CURD"></a>Mysql的CURD</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE 数据库名字  创建数据库</span><br><span class="line"><span class="keyword">DROP</span> DATABASE 数据库名字    删除数据库</span><br><span class="line">USE 数据库名字  选择数据库</span><br><span class="line"><span class="comment">-------表---------</span></span><br><span class="line">CREATA <span class="keyword">TABLE</span> 表名(列名，类型); 创建表</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> 表名; 删除表</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> 表名(列名<span class="number">1</span>, 列名<span class="number">2</span>，列名<span class="number">3.</span>..)<span class="keyword">VALUES</span>(值<span class="number">1</span>，值<span class="number">2</span>，值<span class="number">3.</span>。。);  插入数据</span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> 表名 <span class="keyword">WHERE</span> 规则; 删除表中数据</span><br><span class="line"><span class="keyword">SELECT</span> 列名<span class="number">1</span>，类名<span class="number">2</span>，...(<span class="operator">*</span>) <span class="keyword">FROM</span> 表名(规则);</span><br><span class="line"><span class="keyword">UPDATE</span> 表名 <span class="keyword">SET</span> 列名 <span class="operator">=</span> 值 <span class="keyword">WHERE</span> 列 运算符 <span class="operator">=</span> 值; 更新表中数据</span><br><span class="line"><span class="keyword">DISTINCT</span> 去除重复元素;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> 列名 <span class="keyword">FROM</span> 表名;</span><br></pre></td></tr></table></figure>
+<h4 id="WHERE-子句"><a href="#WHERE-子句" class="headerlink" title="WHERE 子句"></a>WHERE 子句</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 列名称 <span class="keyword">FROM</span> 表名称 <span class="keyword">WHERE</span> 列 运算符 值;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>=</td>
+<td>等于</td>
+</tr>
+<tr>
+<td>&lt;&gt;</td>
+<td>不等于</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大于</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>大于等于</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小于等于</td>
+</tr>
+<tr>
+<td>BETWEEN</td>
+<td>在…范围</td>
+</tr>
+<tr>
+<td>LIKE</td>
+<td>搜索以某种模式 (pattern)</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>sql</category>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>基础</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Anconda基本操作</title>
     <url>/2021/02/04/Python/Anconda%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<h2 id="Anaconda的创建、激活、退出、删除虚拟环境"><a href="#Anaconda的创建、激活、退出、删除虚拟环境" class="headerlink" title="Anaconda的创建、激活、退出、删除虚拟环境"></a>Anaconda的创建、激活、退出、删除虚拟环境</h2><a id="more"></a>
