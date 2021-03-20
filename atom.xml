@@ -6,7 +6,7 @@
   <link href="https://lbwfree.cn/atom.xml" rel="self"/>
   
   <link href="https://lbwfree.cn/"/>
-  <updated>2021-03-20T10:44:27.732Z</updated>
+  <updated>2021-03-20T10:51:37.870Z</updated>
   <id>https://lbwfree.cn/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>post</title>
-    <link href="https://lbwfree.cn/2021/03/20/ERROR/error/"/>
-    <id>https://lbwfree.cn/2021/03/20/ERROR/error/</id>
+    <title>SSM启动后 无法扫描到注解service 的bean导致创建Controller失败</title>
+    <link href="https://lbwfree.cn/2021/03/20/ERROR/SSM%E5%90%AF%E5%8A%A8%E5%90%8E%20%E6%97%A0%E6%B3%95%E6%89%AB%E6%8F%8F%E5%88%B0%E6%B3%A8%E8%A7%A3service%20%E7%9A%84bean%E5%AF%BC%E8%87%B4%E5%88%9B%E5%BB%BAController%E5%A4%B1%E8%B4%A5/"/>
+    <id>https://lbwfree.cn/2021/03/20/ERROR/SSM%E5%90%AF%E5%8A%A8%E5%90%8E%20%E6%97%A0%E6%B3%95%E6%89%AB%E6%8F%8F%E5%88%B0%E6%B3%A8%E8%A7%A3service%20%E7%9A%84bean%E5%AF%BC%E8%87%B4%E5%88%9B%E5%BB%BAController%E5%A4%B1%E8%B4%A5/</id>
     <published>2021-03-20T10:39:06.000Z</published>
-    <updated>2021-03-20T10:44:27.732Z</updated>
+    <updated>2021-03-20T10:51:37.870Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;问题：启动SSM后有tomcat-Localhost-log报错&quot;&gt;&lt;a href=&quot;#问题：启动SSM后有tomcat-Localhost-log报错&quot; class=&quot;headerlink&quot; title=&quot;问题：启动SSM后有tomcat Localhost log报错&quot;&gt;&lt;/a&gt;问题：启动SSM后有tomcat Localhost log报错&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1.org.springframework.beans.factory.UnsatisfiedDependencyException: &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Error creating bean with name &amp;#39;xxxxController&amp;#39; defined in file &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; No qualifying bean of type [com.cxxx.service.xxService] found for dependency&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
