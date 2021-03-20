@@ -4,6 +4,7 @@
     <title>post</title>
     <url>/2021/03/20/ERROR/error/</url>
     <content><![CDATA[<h2 id="问题：启动SSM后有tomcat-Localhost-log报错"><a href="#问题：启动SSM后有tomcat-Localhost-log报错" class="headerlink" title="问题：启动SSM后有tomcat Localhost log报错"></a>问题：启动SSM后有tomcat Localhost log报错</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.org.springframework.beans.factory.UnsatisfiedDependencyException: </span><br><span class="line">Error creating bean with name &#39;xxxxController&#39; defined in file </span><br><span class="line"> No qualifying bean of type [com.cxxx.service.xxService] found for dependency</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="原因："><a href="#原因：" class="headerlink" title="原因："></a>原因：</h2><blockquote>
 <p>对于Controller的类中使用了自动注解@@Autowired 加载xxxService 而这个类启动没有被加载到，无法创建Controller类</p>
 </blockquote>
