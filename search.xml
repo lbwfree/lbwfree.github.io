@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>post</title>
+    <url>/2021/03/20/ERROR/error/</url>
+    <content><![CDATA[<h2 id="问题：启动SSM后有tomcat-Localhost-log报错"><a href="#问题：启动SSM后有tomcat-Localhost-log报错" class="headerlink" title="问题：启动SSM后有tomcat Localhost log报错"></a>问题：启动SSM后有tomcat Localhost log报错</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.org.springframework.beans.factory.UnsatisfiedDependencyException: </span><br><span class="line">Error creating bean with name &#39;xxxxController&#39; defined in file </span><br><span class="line"> No qualifying bean of type [com.cxxx.service.xxService] found for dependency</span><br></pre></td></tr></table></figure>
+<h2 id="原因："><a href="#原因：" class="headerlink" title="原因："></a>原因：</h2><blockquote>
+<p>对于Controller的类中使用了自动注解@@Autowired 加载xxxService 而这个类启动没有被加载到，无法创建Controller类</p>
+</blockquote>
+<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>情况：</p>
+<blockquote>
+<ol>
+<li>查找 @Service是否注解 </li>
+<li>@service是否注解错误，应该注解到service实现类，而不是service的接口</li>
+<li>配置文件 spring-service.xml 与spring-mvc.xml<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">spring-service.xml中是否扫描service</span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;com.lbwfree.service&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">spring-mvc.xml是否扫描</span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;com.lbwfree.controller&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+个人遇到的情况：<br>web,xml中配置错误<br>自己使用idea自动提示时不小心 点错类造成 web.xml 启动时没有加载两个配置文件<br>错误<br><img src="https://img-blog.csdnimg.cn/20210320182842152.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMTAyODY5,size_16,color_FFFFFF,t_70#pic_center" alt="错误代码"><br>正确：<br><img src="https://img-blog.csdnimg.cn/20210320182942785.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMTAyODY5,size_16,color_FFFFFF,t_70" alt="正确代码"></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>ERROR</category>
+      </categories>
+      <tags>
+        <tag>error</tag>
+        <tag>spring</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Mysql基础</title>
     <url>/2021/03/11/sql/mysql/mysql%E5%88%9D%E6%AD%A5%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h2 id="Mysql基础知识"><a href="#Mysql基础知识" class="headerlink" title="Mysql基础知识"></a>Mysql基础知识</h2><p>数据库(database)中 ，表(table)是一种结构化的文件,每个表有一个唯一的名字来标识。<br>表是由一个至多个列组成，每个列(column)有相应的类型。<br>表中的数据按行(row)排列，一行为表中的一个记录。</p>

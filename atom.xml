@@ -6,7 +6,7 @@
   <link href="https://lbwfree.cn/atom.xml" rel="self"/>
   
   <link href="https://lbwfree.cn/"/>
-  <updated>2021-03-11T15:27:41.312Z</updated>
+  <updated>2021-03-20T10:43:19.376Z</updated>
   <id>https://lbwfree.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>post</title>
+    <link href="https://lbwfree.cn/2021/03/20/ERROR/error/"/>
+    <id>https://lbwfree.cn/2021/03/20/ERROR/error/</id>
+    <published>2021-03-20T10:39:06.000Z</published>
+    <updated>2021-03-20T10:43:19.376Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;问题：启动SSM后有tomcat-Localhost-log报错&quot;&gt;&lt;a href=&quot;#问题：启动SSM后有tomcat-Localhost-log报错&quot; class=&quot;headerlink&quot; title=&quot;问题：启动SSM后有tomcat Localhost</summary>
+        
+      
+    
+    
+    
+    <category term="ERROR" scheme="https://lbwfree.cn/categories/ERROR/"/>
+    
+    
+    <category term="error" scheme="https://lbwfree.cn/tags/error/"/>
+    
+    <category term="spring" scheme="https://lbwfree.cn/tags/spring/"/>
+    
+  </entry>
   
   <entry>
     <title>Mysql基础</title>
