@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Anconda基本操作</title>
-    <url>/2021/02/04/Python/Anconda%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<h2 id="Anaconda的创建、激活、退出、删除虚拟环境"><a href="#Anaconda的创建、激活、退出、删除虚拟环境" class="headerlink" title="Anaconda的创建、激活、退出、删除虚拟环境"></a>Anaconda的创建、激活、退出、删除虚拟环境</h2><a id="more"></a>
-
-<h3 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda create -n env_name python=version版本号</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">如果要同时安装包</span></span><br><span class="line">conda create -n env_name numpy mateplotlib python=version</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="激活虚拟环境"><a href="#激活虚拟环境" class="headerlink" title="激活虚拟环境"></a>激活虚拟环境</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Linux: source activate env_name</span><br><span class="line">Windows:activate env_name</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="退出虚拟环境"><a href="#退出虚拟环境" class="headerlink" title="退出虚拟环境"></a>退出虚拟环境</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Linux: source deactivate env_name</span><br><span class="line">Windows: deactivate enc_name </span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="删除虚拟环境"><a href="#删除虚拟环境" class="headerlink" title="删除虚拟环境"></a>删除虚拟环境</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda remove -n env_name --all</span><br><span class="line">conda remove --name env_name package_name</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="conda-常用命令"><a href="#conda-常用命令" class="headerlink" title="conda 常用命令"></a>conda 常用命令</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1. conda list</span><br><span class="line">2. conda install package_name</span><br><span class="line">3. conda env list 或 conda info -e</span><br><span class="line">4.conda update conda</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="重命名"><a href="#重命名" class="headerlink" title="重命名"></a>重命名</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">先克隆</span><br><span class="line">conda create --name new_name --clone old_name</span><br><span class="line">再删除</span><br><span class="line">conda remove -n old_name --all</span><br></pre></td></tr></table></figure>]]></content>
+    <title>SSM启动后 无法扫描到注解service 的bean导致创建Controller失败</title>
+    <url>/2021/03/20/ERROR/SSM%E5%90%AF%E5%8A%A8%E5%90%8E%20%E6%97%A0%E6%B3%95%E6%89%AB%E6%8F%8F%E5%88%B0%E6%B3%A8%E8%A7%A3service%20%E7%9A%84bean%E5%AF%BC%E8%87%B4%E5%88%9B%E5%BB%BAController%E5%A4%B1%E8%B4%A5/</url>
+    <content><![CDATA[<h2 id="问题：启动SSM后有tomcat-Localhost-log报错"><a href="#问题：启动SSM后有tomcat-Localhost-log报错" class="headerlink" title="问题：启动SSM后有tomcat Localhost log报错"></a>问题：启动SSM后有tomcat Localhost log报错</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.org.springframework.beans.factory.UnsatisfiedDependencyException: </span><br><span class="line">Error creating bean with name &#39;xxxxController&#39; defined in file </span><br><span class="line"> No qualifying bean of type [com.cxxx.service.xxService] found for dependency</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="原因："><a href="#原因：" class="headerlink" title="原因："></a>原因：</h2><blockquote>
+<p>对于Controller的类中使用了自动注解@@Autowired 加载xxxService 而这个类启动没有被加载到，无法创建Controller类</p>
+</blockquote>
+<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>情况：</p>
+<blockquote>
+<ol>
+<li>查找 @Service是否注解 </li>
+<li>@service是否注解错误，应该注解到service实现类，而不是service的接口</li>
+<li>配置文件 spring-service.xml 与spring-mvc.xml<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">spring-service.xml中是否扫描service</span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;com.lbwfree.service&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">spring-mvc.xml是否扫描</span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;com.lbwfree.controller&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+个人遇到的情况：<br>web,xml中配置错误<br>自己使用idea自动提示时不小心 点错类造成 web.xml 启动时没有加载两个配置文件<br>错误<br><img src="https://img-blog.csdnimg.cn/20210320182842152.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMTAyODY5,size_16,color_FFFFFF,t_70#pic_center" alt="错误代码"><br>正确：<br><img src="https://img-blog.csdnimg.cn/20210320182942785.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMTAyODY5,size_16,color_FFFFFF,t_70" alt="正确代码"></li>
+</ol>
+</blockquote>
+]]></content>
       <categories>
-        <category>框架学习</category>
-        <category>Python</category>
+        <category>ERROR</category>
       </categories>
       <tags>
-        <tag>基础</tag>
+        <tag>error</tag>
+        <tag>spring</tag>
       </tags>
   </entry>
   <entry>
@@ -82,30 +85,27 @@
       </tags>
   </entry>
   <entry>
-    <title>SSM启动后 无法扫描到注解service 的bean导致创建Controller失败</title>
-    <url>/2021/03/20/ERROR/SSM%E5%90%AF%E5%8A%A8%E5%90%8E%20%E6%97%A0%E6%B3%95%E6%89%AB%E6%8F%8F%E5%88%B0%E6%B3%A8%E8%A7%A3service%20%E7%9A%84bean%E5%AF%BC%E8%87%B4%E5%88%9B%E5%BB%BAController%E5%A4%B1%E8%B4%A5/</url>
-    <content><![CDATA[<h2 id="问题：启动SSM后有tomcat-Localhost-log报错"><a href="#问题：启动SSM后有tomcat-Localhost-log报错" class="headerlink" title="问题：启动SSM后有tomcat Localhost log报错"></a>问题：启动SSM后有tomcat Localhost log报错</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.org.springframework.beans.factory.UnsatisfiedDependencyException: </span><br><span class="line">Error creating bean with name &#39;xxxxController&#39; defined in file </span><br><span class="line"> No qualifying bean of type [com.cxxx.service.xxService] found for dependency</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="原因："><a href="#原因：" class="headerlink" title="原因："></a>原因：</h2><blockquote>
-<p>对于Controller的类中使用了自动注解@@Autowired 加载xxxService 而这个类启动没有被加载到，无法创建Controller类</p>
-</blockquote>
-<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>情况：</p>
-<blockquote>
-<ol>
-<li>查找 @Service是否注解 </li>
-<li>@service是否注解错误，应该注解到service实现类，而不是service的接口</li>
-<li>配置文件 spring-service.xml 与spring-mvc.xml<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">spring-service.xml中是否扫描service</span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;com.lbwfree.service&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">spring-mvc.xml是否扫描</span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;com.lbwfree.controller&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-个人遇到的情况：<br>web,xml中配置错误<br>自己使用idea自动提示时不小心 点错类造成 web.xml 启动时没有加载两个配置文件<br>错误<br><img src="https://img-blog.csdnimg.cn/20210320182842152.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMTAyODY5,size_16,color_FFFFFF,t_70#pic_center" alt="错误代码"><br>正确：<br><img src="https://img-blog.csdnimg.cn/20210320182942785.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMTAyODY5,size_16,color_FFFFFF,t_70" alt="正确代码"></li>
-</ol>
-</blockquote>
-]]></content>
+    <title>Anconda基本操作</title>
+    <url>/2021/02/04/Python/Anconda%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h2 id="Anaconda的创建、激活、退出、删除虚拟环境"><a href="#Anaconda的创建、激活、退出、删除虚拟环境" class="headerlink" title="Anaconda的创建、激活、退出、删除虚拟环境"></a>Anaconda的创建、激活、退出、删除虚拟环境</h2><a id="more"></a>
+
+<h3 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda create -n env_name python=version版本号</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">如果要同时安装包</span></span><br><span class="line">conda create -n env_name numpy mateplotlib python=version</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="激活虚拟环境"><a href="#激活虚拟环境" class="headerlink" title="激活虚拟环境"></a>激活虚拟环境</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Linux: source activate env_name</span><br><span class="line">Windows:activate env_name</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="退出虚拟环境"><a href="#退出虚拟环境" class="headerlink" title="退出虚拟环境"></a>退出虚拟环境</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Linux: source deactivate env_name</span><br><span class="line">Windows: deactivate enc_name </span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="删除虚拟环境"><a href="#删除虚拟环境" class="headerlink" title="删除虚拟环境"></a>删除虚拟环境</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda remove -n env_name --all</span><br><span class="line">conda remove --name env_name package_name</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="conda-常用命令"><a href="#conda-常用命令" class="headerlink" title="conda 常用命令"></a>conda 常用命令</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1. conda list</span><br><span class="line">2. conda install package_name</span><br><span class="line">3. conda env list 或 conda info -e</span><br><span class="line">4.conda update conda</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="重命名"><a href="#重命名" class="headerlink" title="重命名"></a>重命名</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">先克隆</span><br><span class="line">conda create --name new_name --clone old_name</span><br><span class="line">再删除</span><br><span class="line">conda remove -n old_name --all</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>ERROR</category>
+        <category>框架学习</category>
+        <category>Python</category>
       </categories>
       <tags>
-        <tag>error</tag>
-        <tag>spring</tag>
+        <tag>基础</tag>
       </tags>
   </entry>
 </search>
